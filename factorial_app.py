@@ -1,8 +1,6 @@
 import time
 
-# -------------------------------
-# 1) 반복문 factorial
-# -------------------------------
+
 def factorial_iter(n: int) -> int:
     if n < 0:
         raise ValueError("음수는 팩토리얼을 계산할 수 없습니다.")
@@ -12,9 +10,6 @@ def factorial_iter(n: int) -> int:
     return result
 
 
-# -------------------------------
-# 2) 재귀 factorial
-# -------------------------------
 def factorial_rec(n: int) -> int:
     if n < 0:
         raise ValueError("음수는 팩토리얼을 계산할 수 없습니다.")
@@ -75,12 +70,12 @@ def menu():
                     print(f"[반복] 시간: {t_iter:.6f} s | [재귀] 시간: {t_rec:.6f} s")
 
             except ValueError:
-                print("❌ 올바른 정수를 입력하세요.")
+                print(" 올바른 정수를 입력하세요.")
             except RecursionError:
-                print("❌ RecursionError: 재귀 깊이 초과!")
+                print(" RecursionError: 재귀 깊이 초과!")
 
         elif choice == "4":
-            print("\n📌 테스트 데이터 실행 결과")
+            print("\n 테스트 데이터 실행 결과")
             for n in TEST_DATA:
                 try:
                     res_iter, t_iter = run_with_time(factorial_iter, n)
@@ -88,15 +83,16 @@ def menu():
                     print(f"\n▶ n={n}")
                     print(f"  [반복] 결과={res_iter}, 시간={t_iter:.6f}초")
                     print(f"  [재귀] 결과={res_rec}, 시간={t_rec:.6f}초")
-                    print(f"  ✅ 일치 여부: {res_iter == res_rec}")
+                    print(f"  일치 여부: {res_iter == res_rec}")
                 except RecursionError:
                     print(f"\n▶ n={n}")
                     print("  [재귀] RecursionError 발생 (깊이 초과)")
 
         else:
-            print("❌ 잘못된 입력입니다. 다시 선택하세요.")
+            print(" 잘못된 입력입니다. 다시 선택하세요.")
 
 
 if __name__ == "__main__":
     menu()
+
 
